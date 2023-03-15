@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_layout/detail_screen.dart';
+import 'package:untitled/detail_screen.dart';
 
 void main() {
   runApp(const MyApp());

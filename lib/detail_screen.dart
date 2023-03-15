@@ -8,7 +8,9 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget> [
+            Image.asset('assets/images/submarine.jpeg'),
             Container(
               margin: EdgeInsets.only(top: 16.0),
               child: const Text(
@@ -37,9 +39,37 @@ class DetailScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16.0),
               child: const Text(
-                'Museum inside a decommissioned Russian war submarine with tours & an adjacent park with cafes. Clean and well maintained. Car park cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine.',
+                'Museum inside a decommissioned Russian war submarine.jpeg with tours & an adjacent park with cafes. Clean and well maintained. Car park cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine.jpeg.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16.0),
+              ),
+            ),
+            Container(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget> [
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.network(
+                        'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg')
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                        'assets/images/monkasel_1.jpeg'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                        'assets/images/monkasel_2.jpg'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Image.asset(
+                        'assets/images/monkasel_3.jpg'),
+                  )
+                ],
               ),
             )
           ],
