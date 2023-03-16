@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: 4.2.1
   flutter:
     sdk: flutter
 
@@ -64,6 +65,38 @@ flutter:
     - assets/images/monkasel_2.jpg
     - assets/images/monkasel_3.jpg
     - assets/images/submarine.jpeg
+    - assets/images/balai_jagong.jpg
+    - assets/images/balai_jagong_1.jpg
+    - assets/images/balai_jagong_2.jpg
+    - assets/images/balai_jagong_3.jpg
+    - assets/images/oasis.jpg
+    - assets/images/oasis_1.jpg
+    - assets/images/oasis_2.jpg
+    - assets/images/oasis_3.jpg
+    - assets/images/sardi.jpg
+    - assets/images/sardi_1.jpg
+    - assets/images/sardi_2.jpg
+    - assets/images/sardi_3.JPG
+    - assets/images/selam_semliro.jpg
+    - assets/images/selam_semliro_1.jpg
+    - assets/images/selam_semliro_2.jpg
+    - assets/images/selam_semliro_3.jpg
+    - assets/images/river.jpg
+    - assets/images/river_1.jpg
+    - assets/images/river_2.jpg
+    - assets/images/river_3.jpg
+    - assets/images/logung.jpg
+    - assets/images/logung_1.jpg
+    - assets/images/logung_2.jpg
+    - assets/images/logung_3.jpeg
+    - assets/images/dongkas.jpg
+    - assets/images/dongkas_1.jpg
+    - assets/images/dongkas_2.jpg
+    - assets/images/dongkas_3.jpg
+    - assets/images/dandangan.jpg
+    - assets/images/dandangan_1.jpg
+    - assets/images/dandangan_2.jpg
+    - assets/images/dandangan_3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

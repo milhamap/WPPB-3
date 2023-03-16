@@ -1,105 +1,93 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/models/tourism_place.dart';
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({super.key});
+  const DetailScreen({Key? key, required this.place}) : super(key: key);
+
+  final TourismPlace place;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> listgalery = [
+      for (var i = 0; i < place.imageAsset.length; i++)
+        SafeArea(
+          child: Container(
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                image: AssetImage(place.imageAsset[i]),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        )
+    ];
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget> [
-            Image.asset('assets/images/submarine.jpeg'),
-            Container(
-              margin: EdgeInsets.only(top: 16.0),
-              child: const Text(
-                'Surabaya Submarine Monument',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 30.0,
-                    fontFamily: 'Lobster'
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget> [
+              Image.asset(place.imageMain),
+              Container(
+                margin: EdgeInsets.only(top: 16.0),
+                child: Text(
+                  place.name,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 30.0,
+                      fontFamily: 'Lobster'
+                  ),
                 ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Column(
-                    children: const <Widget>[
-                      Icon(Icons.calendar_today),
-                      Text('Open Everyday')
-                    ],
-                  ),
-                  Column(
-                    children: const <Widget>[
-                      Icon(Icons.alarm),
-                      Text('08.00 - 16.00')
-                    ],
-                  ),
-                  Column(
-                    children: const <Widget>[
-                      Icon(Icons.attach_money),
-                      Text('Rp. 5.000')
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(16.0),
-              child: const Text(
-                'Museum inside a decommissioned Russian war submarine.jpeg with tours & an adjacent park with cafes. Clean and well maintained. Car park cost 10k, entrance fee 15k/person. You can see KRI Pasopati there, it is a russian whiskey class. You can also watch the video about the Indonesian Navy at the building beside the submarine.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontFamily: 'Oxygen'
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.calendar_today),
+                        Text(place.open)
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.alarm),
+                        Text(place.time)
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Icon(Icons.attach_money),
+                        Text(place.tiket)
+                      ],
+                    )
+                  ],
                 ),
               ),
-            ),
-            Container(
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget> [
-                  Padding(
-                    padding: const EdgeInsets.all(4.0)
+              Container(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                    place.description,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontFamily: 'Oxygen'
+                    ),
                   ),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(30.0),
-                      child: Image.network(
-                          'https://media-cdn.tripadvisor.com/media/photo-m/1280/16/a9/33/43/liburan-di-farmhouse.jpg')
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0)
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset(
-                        'assets/images/monkasel_1.jpeg'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0)
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset(
-                        'assets/images/monkasel_2.jpg'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(4.0)
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(30.0),
-                    child: Image.asset(
-                        'assets/images/monkasel_3.jpg'),
-                  ),
-                ],
               ),
-            )
-          ],
+              Container(
+                height: 300,
+                child: CarouselSlider(items: listgalery, options: CarouselOptions(enlargeCenterPage: true)),
+              ),
+              SizedBox(height: 20)
+            ],
+          ),
         ),
       ),
     );
